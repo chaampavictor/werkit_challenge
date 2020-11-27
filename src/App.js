@@ -18,6 +18,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <nav>
+          <ul>
+            <h4>
+              <Link to="/">Home</Link>
+            </h4>
+            <h4>
+              <Link to="/selected">Selected Repositories</Link>
+            </h4>
+          </ul>
+        </nav>
         <Switch>
           {/* <Route exact path={"/login/"} component={Login} /> */}
           <Route exact path={"/"} component={Home} />
