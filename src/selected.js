@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import SimpleStorage from "react-simple-storage";
 
@@ -27,7 +27,7 @@ export default class Selected extends Component {
         <br />
         <br />
         <br />
-
+        <h1>Selected Repositories</h1>
         {/* <ul>
           {this.state.list.map((item) => {
             return (
@@ -46,7 +46,7 @@ export default class Selected extends Component {
           {this.state.list.map((item) => (
             <div
               className="card"
-              key={repo.id}
+              key={item.id}
               style={{ background: "#8080801f" }}
             >
               <div className="explore-user-detail">
@@ -57,7 +57,7 @@ export default class Selected extends Component {
                     fontSize: "15px",
                   }}
                 >
-                  {repo.full_name}
+                  {item.full_name}
                 </span>
               </div>
 
@@ -65,13 +65,13 @@ export default class Selected extends Component {
                 <h6>
                   Default Branch:
                   <br />
-                  <span>{repo.default_branch}</span>
+                  <span>{item.default_branch}</span>
                 </h6>
 
                 <h6>
                   Decription:
                   <br />
-                  <span>{repo.description}</span>
+                  <span>{item.description}</span>
                 </h6>
 
                 <br />
@@ -87,9 +87,6 @@ export default class Selected extends Component {
                       background: "red",
                       height: "32px",
                     }}
-                    key={i}
-                    ref="itemValue"
-                    value={repo}
                     onClick={() => this.deleteItem(item.id)}
                   >
                     <span
