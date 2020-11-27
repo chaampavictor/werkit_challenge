@@ -4,7 +4,7 @@ import axiosInstance from "./axiosApi";
 import { Button } from "react-bootstrap";
 
 import "./repo.css";
-
+import { Link } from "react-router-dom";
 import SimpleStorage from "react-simple-storage";
 
 import MainWrapper from "./mainwrapper";
@@ -14,7 +14,7 @@ export class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tickets: [],
+      repositories: [],
       isLoading: true,
       errors: null,
 
@@ -34,7 +34,21 @@ export class Home extends Component {
     this.setState({ [key]: value });
   }
 
-  ticketBuy(value) {
+  repoDetails(value) {
+    Cookies.set(`repodata`, {
+      name: value.name,
+      full_name: value.full_name,
+      default_branch: value.default_branch,
+      score: value.score,
+      ssh_url: value.ssh_url,
+      stargazers_count: value.stargazers_count,
+      size: value.size,
+      language: value.language,
+    });
+    console.log("testing", value);
+  }
+
+  addSelect(value) {
     console.log("value from repo", value);
 
     const list = [...this.state.list];
@@ -66,7 +80,7 @@ export class Home extends Component {
       );
 
       this.setState({
-        tickets: response.data.items,
+        repositories: response.data.items,
 
         isLoading: false,
       });
@@ -83,8 +97,8 @@ export class Home extends Component {
   }
 
   render() {
-    const { isLoading, tickets, from, to } = this.state;
-    const date = JSON.parse(Cookies.get("date"));
+    const { isLoading, repositories, from, to } = this.state;
+    // const repodata = JSON.parse(Cookies.get("repo"));
     return (
       <React.Fragment>
         <SimpleStorage parent={this} />
@@ -154,18 +168,12 @@ export class Home extends Component {
           </div>
           <br />
           <br />
-          <h1
-            style={{
-              fontWeight: "bolder",
-              fontStyle: "oblique",
-              textAlign: "center",
-            }}
-          ></h1>
+
           <div
             className="explore-card-columns  container-fluid"
             style={{ marginBottom: "100px" }}
           >
-            {tickets.map((repo, i) => (
+            {repositories.map((repo, i) => (
               <div
                 className="card"
                 key={repo.id}
@@ -212,7 +220,7 @@ export class Home extends Component {
                       key={i}
                       ref="itemValue"
                       value={repo}
-                      onClick={this.ticketBuy.bind(this, repo)}
+                      onClick={this.addSelect.bind(this, repo)}
                     >
                       <span
                         style={{
@@ -225,22 +233,22 @@ export class Home extends Component {
                       </span>
                     </Button>
 
-                    <Link
-                      to="/selforother"
-                      type="submit"
-                      value="submit"
-                      style={{ textDecoration: "none", borderColor: "red" }}
+                    <Button
+                      style={{
+                        background: "#32c709",
+                        height: "32px",
+                        marginLeft: "6px",
+                      }}
+                      key={i}
+                      ref="itemValue"
+                      value={repo}
+                      onClick={this.repoDetails.bind(this, repo)}
                     >
-                      <Button
-                        style={{
-                          background: "#32c709",
-                          height: "32px",
-                          marginLeft: "6px",
-                        }}
-                        key={i}
-                        ref="itemValue"
-                        value={busticket}
-                        onClick={this.ticketBuy.bind(this, busticket)}
+                      <Link
+                        to="/details"
+                        type="submit"
+                        value="submit"
+                        style={{ textDecoration: "none", borderColor: "red" }}
                       >
                         <span
                           style={{
@@ -251,8 +259,9 @@ export class Home extends Component {
                         >
                           View Details
                         </span>
-                      </Button>
-                    </Link>
+                      </Link>
+                    </Button>
+
                     {/* <Button
                       style={{
                         background: "#32c709",
@@ -262,7 +271,7 @@ export class Home extends Component {
                       key={i}
                       ref="itemValue"
                       value={repo}
-                      onClick={this.ticketBuy.bind(this, repo)}
+                      onClick={this.addSelect.bind(this, repo)}
                     >
                       <span
                         style={{
