@@ -1,0 +1,218 @@
+.explore-nav {
+  padding-top: 30px;
+}
+.explore-nav-link {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  color: #3e3e3e;
+  opacity: 0.6;
+  text-decoration: none;
+  padding: 10px 10px;
+}
+.explore-nav-link:hover {
+  color: #f7931e !important;
+  text-decoration: none;
+}
+.explore-nav-link:focus {
+  color: #f7931e;
+}
+
+.explore-user-detail {
+  padding-top: 20px;
+  background: #8080800a;
+  text-align: center;
+}
+.explore-user-detail img {
+  height: 30px;
+  width: 30px;
+}
+.explore-username {
+  padding-left: 15px;
+  padding-right: 30px;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  color: #fff;
+}
+.follow {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  background: none;
+  outline: none;
+  border: none;
+}
+.explore-body .card-body:hover {
+  /* color: #30adb4; */
+  background: "#32c709";
+}
+
+.user-reaction div {
+  padding-right: 20px;
+}
+/*@media screen and (max-width: 800px) {
+      .explore-images-body {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+      }
+    }*/
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+/* @media screen and (max-width: 600px) {
+      .explore-images-body {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+      }
+    }*/
+.explore-card-columns .card {
+  margin-bottom: 0.79rem;
+}
+@media screen and (min-width: 992px) {
+  .explore-card-columns {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+    -webkit-column-gap: 1.25rem;
+    -moz-column-gap: 1.25rem;
+    column-gap: 1.25rem;
+  }
+  .explore-card-columns .card {
+    display: inline-block;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .explore-card-columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+@media screen and (max-width: 600px) {
+  .explore-card-columns {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
+}
+.explore-content:hover {
+  color: white;
+}
+.follow:hover {
+  color: white;
+}
+.pink {
+  border: 1px solid #bc0272;
+  width: 100%;
+}
+.pink:hover {
+  background: #bc0272;
+}
+.dark-blue {
+  border: 1px solid #000000;
+}
+.dark-blue:hover {
+  background: #2e384d;
+  color: white;
+}
+.light-danger {
+  border: 1px solid #ff0404;
+}
+.light-danger:hover {
+  background: #ff0404;
+  color: white;
+}
+.green {
+  border: 1px solid #4bc999;
+}
+.green:hover {
+  background: #4bc999;
+  color: white;
+}
+.blue {
+  border: 1px solid #34abe0;
+}
+.blue:hover {
+  background: #34abe0;
+}
+.orange {
+  border: 1px solid #ff8a00;
+}
+.orange:hover {
+  background: #ff8a00;
+}
+.black {
+  border: 1px solid #3e2a2a;
+}
+.black:hover {
+  background: #3e2a2a;
+}
+.dark-orange {
+  border: 1px solid #b58657;
+}
+.dark-orange:hover {
+  background: #b58657;
+}
+
+.follow {
+  max-width: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .follow {
+    display: none;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+
+.credit-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 400px;
+  height: 250px;
+  padding: 25px;
+  border-radius: 15px;
+
+  color: white;
+
+  background-image: linear-gradient(25deg, #0f509e, #1399cd);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.credit-card__number {
+  display: flex;
+  justify-content: center;
+
+  font-family: "Fjalla One", sans-serif;
+  font-size: 45px;
+}
+
+.credit-card__info {
+  display: flex;
+  /* justify-content: space-between; */
+
+  font-family: "Fjalla One", sans-serif;
+  font-size: 25px;
+}
+
+.credit-card__info_label {
+  font-size: 14px;
+}
+
+.credit-card__info_expiry {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
